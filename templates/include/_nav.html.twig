@@ -18,7 +18,7 @@
             {% if is_granted("ROLE_ADMIN") %}
 
                 {# #################### PIZZA #################### #}
-                <a href="#">
+                <a href=" {{path('app_admin_pizza_list')}} ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pizza" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M12 21.5c-3.04 0 -5.952 -.714 -8.5 -1.983l8.5 -16.517l8.5 16.517a19.09 19.09 0 0 1 -8.5 1.983z" />
@@ -62,7 +62,7 @@
 
                 {# #################### USER #################### #}
 
-                <a href="#" class="navbar-brand">
+                <a href="{{path('app_login')}}" class="navbar-brand">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <circle cx="12" cy="7" r="4" />
@@ -70,7 +70,7 @@
                         <title>Connectez-vous</title>
                      </svg>
                  </a>
-                <a href="#" class="navbar-brand">
+                <a href="{{path('app_register')}}" class="navbar-brand">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <circle cx="9" cy="7" r="4" />
