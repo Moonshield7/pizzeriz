@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NAVBAR */
+
+.az_navbar{
+    z-index: 2;
+    position: fixed;
+    background-color: whitesmoke;
+    border-bottom: 1px solid rgba(229, 219, 219, 0.528);
+    width: 100%;
+}
+
+/* HEADER */
+
+.az_container{
+    width: 100%;
+    height: 700px;
+    margin-bottom: 50px;
+    background: url('bg_pizza.jpg') no-repeat center center / cover;
+}
+
+.az_title{
+    color: white;
+    text-align: center;
+    padding: 250px;
+}
+
+.az_title h1{
+    font-size: 70px;
+}
+
+.az_title p{
+    font-size: 30px;
+}
+
+/* CARD PIZZA */
+.card_pizza{
+    margin: 30px auto;
+    display: flex;
+    background-color: #f1dfd1;
+    background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+}
+.card_img{
+    margin: 0;
+    width: 50%;
+}
+
+.card_img img{
+    width: 90%;
+    height: auto;
+}
+
+.card_text{
+    width: 50%;
+}
