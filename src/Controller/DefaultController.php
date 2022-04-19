@@ -20,5 +20,10 @@ class DefaultController extends AbstractController
       return $this->render('default/home.html.twig');
 
     }
-   
+
+    #[Route("/admin/dashboard", name: "app_admin_show_dashboard", methods: ["GET"])]
+    public function showDashboard(): Response
+    {
+        return $this->render("/admin/dashboard.html.twig");
+    }
 }

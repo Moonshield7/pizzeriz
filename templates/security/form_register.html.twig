@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-5">Inscription</h1>
+    {{form_start(form)}}
+        <div class="container justify-content-center">
+            <h3>Vos informations personnelles</h3>
+            <div class="row">
+                {{form_row(form.name)}}
+            </div>
+            <div class="row">
+                {{form_row(form.email)}}
+            </div>
+            <div class="row">
+                {{form_row(form.password)}}
+            </div>
+            <div class="row">
+                {# {{form_row(form.password)}} #}
+            </div>
+            <div class="row">
+                {{form_row(form.phoneNumber)}}
+            </div>
+        </div>
+
+        <div class="container justify-content-center my-4">
+            <h3>Votre adresse</h3>
+            <div class="row">
+                {{form_row(form.city)}}
+            </div>
+            <div class="row">
+                {{form_row(form.postalCode)}}
+            </div>
+            <div class="row">
+                {{form_row(form.address)}}
+            </div>
+            <div class="row">
+                {{form_row(form.complement)}}
+            </div>
+
+            <div class="row justify-content-center">
+                <a href="#" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> - S'inscrire</a>
+            </div>
+        </div>
+
+    {{form_end(form)}}
+
+{% endblock %}
