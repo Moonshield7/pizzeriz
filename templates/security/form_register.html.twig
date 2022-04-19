@@ -3,6 +3,11 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+
+    <br>
+    <br>
+    <br>
+    <br>
     <h1 class="text-center my-5">Inscription</h1>
     {{form_start(form)}}
         <div class="container justify-content-center">
@@ -39,9 +44,9 @@
                 {{form_row(form.complement)}}
             </div>
 
-            <div class="row justify-content-center">
-                <a href="#" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> - S'inscrire</a>
-            </div>
+            {# <div class="row justify-content-center">
+                <a href="{{path('app_register')}}" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> - S'inscrire</a>
+            </div> #}
         </div>
 
     {{form_end(form)}}

@@ -120,12 +120,12 @@ class RegisterType extends AbstractType
             ])
             /* ->add('createdAt') */
             /* ->add('updatedAt') */
-            // ->add('submit', SubmitType::class, [
-            //     'label' => 'S\'incrire',
-            //     'attr' => [
-            //         'class' => 'btn btn-success col-6 justify-content-center'
-            //     ]
-            // ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'S\'incrire',
+                'attr' => [
+                    'class' => 'btn btn-success col-6 justify-content-center'
+                ]
+            ])
         ;
     }
 

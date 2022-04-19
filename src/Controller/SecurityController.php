@@ -36,7 +36,7 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/inscription', name: 'app_register', methods:['GET', 'POST'])]
-    public function register(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $passwordHash, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user)->handleRequest($request);
@@ -44,7 +44,7 @@ class SecurityController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $user->setRoles(['ROLE_USER']);
             $user->setPassword(
-                $passwordHasher->hashPassword(
+                $passwordHash->hashPassword(
                     $user, $form->get('password')->getData()
                 )
             );
