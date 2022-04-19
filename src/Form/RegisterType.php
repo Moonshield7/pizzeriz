@@ -11,6 +11,8 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class RegisterType extends AbstractType
@@ -122,7 +124,7 @@ class RegisterType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'incrire',
                 'attr' => [
-                    'class' => 'd-block mx-auto col-2 btn btn-primary'
+                    'class' => 'btn btn-success col-6 justify-content-center'
                 ]
             ])
         ;
