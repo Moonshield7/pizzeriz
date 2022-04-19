@@ -8,6 +8,8 @@
 /var/
 /vendor/
 composer.lock
+/.vscode/
+/public/uploads/
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
