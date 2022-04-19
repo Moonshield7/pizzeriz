@@ -4,7 +4,30 @@
 
 {% block body %}
 
-    <h1>Coucou !</h1>
+    <div class="az_container">
+       <div class="az_title">
+            <h1>PizzaShop</h1>
+            <p>Vos meilleures pizzas à portée de clic!</p>
+        </div> 
+    </div>
+
+    <h2 class="container">Nos pizzas:</h2>
+
+    {# #################### PREMIERE PIZZA #################### #}
+    <div class="card_pizza container p-0">
+            <div class="card_img">
+                <img src="../asset/bg_pizza.jpg" alt="pizza">
+            </div>
+            <div class="card_text">
+                <div class="card-body">
+                    <h5 class="card-title">Nom pizza</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p>Prix €</p>
+                    <button type="submit" class="btn btn-light">Ajouter au panier</button>
+                </div>
+            </div>
+        
+    </div>
 
 {% endblock %}
 
