@@ -1,0 +1,7 @@
+# Génération des pizzas
+App\Entity\Pizza:
+  pizza_1:
+    title: Margerita
+    description: Pizza Margarita traditionnel
+    price: 9.5
+    image: https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg
