@@ -6,9 +6,15 @@
 
    <a href="{{ path('app_admin_pizza_create')}}">Ajouter pizza</a>
 
-   {# {% for pizza in pizzas %}
+   {% for pizza in pizzas %}
+
+    {{ pizza.name}} <br>
+
+     <a href="app_admin_pizza_update"> modifier</a>
+
+    
         
        
-   {% endfor %} #}
+   {% endfor %}
 
 {% endblock %}

@@ -44,7 +44,7 @@ class PizzaController extends AbstractController
             $pizza->setUpdatedAt(new DateTime());
 
             /** @var UploadedFile $photo */
-            $photo = $form->get('photo')->getData();
+            $photo = $form->get('picture')->getData();
 
             if($photo) {
                 
@@ -58,7 +58,7 @@ class PizzaController extends AbstractController
             return $this->redirectToRoute('app_admin_pizza_list');
         }// end if($form)
 
-        return $this->render('admin/home.html.twig', [
+        return $this->render('admin/pizza/create.html.twig', [
             'form' => $form->createView()
         ]);
 
@@ -70,14 +70,14 @@ class PizzaController extends AbstractController
         $originalPhoto = $pizza->getPicture();
 
         $form = $this->createForm(PizzaType::class, $pizza, [
-            'photo' => $originalPhoto
+            'picture' => $originalPhoto
         ])->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
 
             $pizza->setUpdatedAt(new DateTime());
 
-            $photo = $form->get('photo')->getData();
+            $photo = $form->get('picture')->getData();
 
             if($photo) {
                 // Méthode créée par nous-même pour réutiliser cette partie de code
@@ -100,7 +100,7 @@ class PizzaController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/auteurs/{id}/supprimer', name: 'app_admin_author_delete')]
+    #[Route('/admin/pizza/{id}/supprimer', name: 'app_admin_pizza_delete')]
 	public function delete(Pizza $pizza, PizzaRepository $repository): Response
 	{
 		$repository->remove($pizza);
