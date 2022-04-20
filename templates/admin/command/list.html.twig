@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Admin - Liste des commandes{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des commandes</h1>
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+
+            {% if commands is not empty %}
+            
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date création</th>
+                            {# <th>Téléphone</th>
+                            <th>Actions</th> #}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for command in commands %}
+                            <tr>
+                                <td> {{command.id}} </td>
+                                <td> {{command.createdAt}} </td>
+                            {#  <td> {{command.phoneNumber}} </td> #}
+                                {# <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td> #}
+                            </tr> 
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                Aucune commande !
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
