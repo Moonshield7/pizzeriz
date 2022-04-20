@@ -1,3 +1,32 @@
 {% extends 'admin/pizza/create.html.twig' %}
 
 {% block page_title 'Modifier' %}
+{% block body %}
+
+    <h1 class="text-center my-3">Modifier {{ pizza.name }}</h1>
+    <a href="{{ path('app_admin_pizza_list') }}" class="text-dark"><i class="fa-solid fa-arrow-left"></i> Retour aux pizzas</a>
+
+    <div class="row">
+        <div class="col-8 mx-auto">
+            {{ form_start(form) }}
+
+            <div class="row">
+                <div class="col-12">{{ form_row(form.name) }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">{{ form_row(form.description) }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">{{ form_row(form.price) }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">{{ form_row(form.picture) }}</div>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
