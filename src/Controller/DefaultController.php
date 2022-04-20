@@ -26,6 +26,17 @@ class DefaultController extends AbstractController
     #[Route("/admin/dashboard", name: "app_admin_show_dashboard", methods: ["GET"])]
     public function showDashboard(): Response
     {
-        return $this->render("/admin/dashboard.html.twig");
+      return $this->render("/admin/dashboard.html.twig");
+    }
+
+    #[Route("/redirectRole", name: "app_admin_redirect_role", methods: ["GET"])]
+    public function redirectRole(): Response
+    {
+      if ( in_array( 'ROLE_ADMIN', $this->getUser()->getRoles(), true) ){
+        return $this->redirectToRoute("app_admin_show_dashboard");
+
+      }else{
+        return $this->redirectToRoute("app_default_show_home");
+      }
     }
 }
