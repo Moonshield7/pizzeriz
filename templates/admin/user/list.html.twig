@@ -17,33 +17,40 @@
 
 {# RECHERCHE AVANCEE #}
 
-    <div>
+    <div class="container">
+    {{form_start(form)}}
+    {{form_end(form)}}
     
     </div>
 
 
 
 {# TABLEAU DES UTILISATEURS #}
-    <thead>
-        <th>
-            <td>ID</td>
-            <td>Email</td>
-            <td>Téléphone</td>
-            <td>Actions</td>
-        </th>
-    </thead>
+<div class="container justify-content-center">
+    <div class="row justify-content-center">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-    <tbody>
-        {% for user in users %}
-            <tr>
-                <td> {{user.id}} </td>
-                <td> {{user.email}} </td>
-                <td> {{user.phoneNumber}} </td>
-                <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
-            </tr>  
-        {% endfor %}
-    </tbody>
-
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td> {{user.id}} </td>
+                        <td> {{user.email}} </td>
+                        <td> {{user.phoneNumber}} </td>
+                        <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
+                    </tr>  
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
 

@@ -6,6 +6,8 @@ namespace App\Controller\admin;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\DTO\UserSearchCriteria;
+use App\Form\UserSearchFormType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,15 @@ class UserController extends AbstractController
     #[Route('/admin/user', name: 'app_admin_user_list', methods: ['GET'])]
     public function list( Request $request, UserRepository $repository): Response
     {
-      $users =  $repository->findAll();
+        $form = $this->createForm(UserSearchFormType::class, new UserSearchCriteria());
+
+        $form->handleRequest($request);
+
+        $searchCriteria = $form->getData();
 
       return $this->render('admin/user/list.html.twig', [
-          'users' => $users,
+		'users' => $repository->findByCriteria($searchCriteria),
+		'form' => $form->createView(),
       ]);
 
     }
@@ -57,13 +64,13 @@ class UserController extends AbstractController
 		return $this->redirectToRoute('app_admin_user_list');
 	}
 
-	#[Route('/admin/user/par-nom/{name}', name: 'app_admin_user_listByName')]
-	public function listByName(UserRepository $repository, string $name): Response
-	{
-		$users = $repository->findByName($name);
+	// #[Route('/admin/user/par-nom/{name}', name: 'app_admin_user_listByName')]
+	// public function listByName(UserRepository $repository, string $name): Response
+	// {
+	// 	$users = $repository->findByName($name);
 
-		return $this->render('admin/user/listByName.html.twig', [
-			'users' => $users,
-		]);
-	}
+	// 	return $this->render('admin/user/listByName.html.twig', [
+	// 		'users' => $users,
+	// 	]);
+	// }
 }

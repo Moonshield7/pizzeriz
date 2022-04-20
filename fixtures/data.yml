@@ -10,3 +10,26 @@ App\Entity\Pizza:
     description: <fr_FR:realText()>
     price: <randomFloat(1, 8, 19)>
     picture: <randomElement(['https://cdn.pixabay.com/photo/2017/09/30/15/10/plate-2802332_960_720.jpg', 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg', 'https://cdn.pixabay.com/photo/2016/11/29/13/02/cheese-1869708_960_720.jpg', 'https://cdn.pixabay.com/photo/2020/04/29/03/30/pizza-5107039_960_720.jpg'])>
+
+App\Entity\User:
+  user_1:
+    email: admin@admin.fr
+    roles: ["ROLE_ADMIN"]
+    password: admin
+    name: admin
+    phoneNumber: 0123456789
+    city: admin
+    postal_code: 12345
+    address: admin
+    complement: admin
+
+  user_2:
+    email: polo@admin.fr
+    roles: ["ROLE_ADMIN"]
+    password: polo
+    name: polo
+    phoneNumber: 0123456789
+    city: polo
+    postal_code: 12345
+    address: polo
+    complement: polo
