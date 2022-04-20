@@ -122,7 +122,7 @@ class RegisterType extends AbstractType
             /* ->add('createdAt') */
             /* ->add('updatedAt') */
             ->add('submit', SubmitType::class, [
-                'label' => 'S\'incrire',
+                'label' => 'Valider',
                 'attr' => [
                     'class' => 'btn btn-success col-6 justify-content-center'
                 ]
@@ -132,6 +132,8 @@ class RegisterType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
+        $resolver->define('handleDates');
+
         $resolver->setDefaults([
             'data_class' => User::class,
         ]);

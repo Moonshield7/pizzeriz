@@ -6,6 +6,7 @@ namespace App\Controller\admin;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\RegisterType;
 use App\DTO\UserSearchCriteria;
 use App\Form\UserSearchFormType;
 use App\Repository\UserRepository;
@@ -37,7 +38,7 @@ class UserController extends AbstractController
 	public function update(User $user, Request $request, UserRepository $repository): Response
 	{
 		// Création d'un formulaire :
-		$form = $this->createForm(UserType::class, $user, [
+		$form = $this->createForm(RegisterType::class, $user, [
 			'handleDates' => true,
 		]);
 
