@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Pizza;
+use App\Entity\Panier;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Pizza|null find($id, $lockMode = null, $lockVersion = null)
- * @method Pizza|null findOneBy(array $criteria, array $orderBy = null)
- * @method Pizza[]    findAll()
- * @method Pizza[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Panier|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Panier|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Panier[]    findAll()
+ * @method Panier[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PizzaRepository extends ServiceEntityRepository
+class PanierRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Pizza::class);
+        parent::__construct($registry, Panier::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Pizza $entity, bool $flush = true): void
+    public function add(Panier $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class PizzaRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Pizza $entity, bool $flush = true): void
+    public function remove(Panier $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -45,23 +45,8 @@ class PizzaRepository extends ServiceEntityRepository
         }
     }
 
-
-       /**
-     * Recherche les pizzas par leurs noms
-     */
-    public function findByName(string $name): array
-    {
-        return $this
-            ->createQueryBuilder('pizza')
-            ->andWhere('pizza.name LIKE :name')
-            ->setParameter('name', "%$name%")
-            ->orderBy('pizza.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
     // /**
-    //  * @return Pizza[] Returns an array of Pizza objects
+    //  * @return Panier[] Returns an array of Panier objects
     //  */
     /*
     public function findByExampleField($value)
@@ -78,7 +63,7 @@ class PizzaRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Pizza
+    public function findOneBySomeField($value): ?Panier
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
