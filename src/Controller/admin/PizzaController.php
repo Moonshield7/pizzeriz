@@ -94,7 +94,7 @@ class PizzaController extends AbstractController
             return $this->redirectToRoute('app_admin_pizza_list');
         }
 
-        return $this->render('admin/pizza.update.html.twig', [
+        return $this->render('admin/pizza/update.html.twig', [
             'form' => $form->createView(),
             'pizza' => $pizza,
         ]);

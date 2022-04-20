@@ -1,20 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
-   <a href="{{ path('app_admin_pizza_create')}}">Ajouter pizza</a>
+   <div class="">
+      <div class="actions">
+         <h1>Les pizzas</h1>
+         <a href="{{ path('app_admin_pizza_create') }}" class = "bouton" title="Ajouter une pizza">Ajouter une pizza</a>
+      </div>
 
-   {% for pizza in pizzas %}
+      {% for pizza in pizzas %}
 
-    {{ pizza.name}} <br>
-
-     <a href="app_admin_pizza_update"> modifier</a>
-
-    
-        
-       
-   {% endfor %}
+         <div class="card_pizza container p-0">
+            <div class="card_img">
+               {% set imgName = "../uploads/"~ pizza.picture %}
+               <img src= {{imgName}} alt= {{ pizza.name }} >
+            </div>
+            <div class="card_text">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pizza.name }} </h5>
+                    <p class="card-text">{{ pizza.description }}</p>
+                    <p>Prix :  {{ pizza.price }}€</p>
+                </div>
+            </div>
+            <div class="row gap-5">
+               <a class="btn btn-warning" href="{{ path('app_admin_pizza_update', {id: pizza.id}) }}"> Modifier</a>
+               <a class="btn btn-danger" href="{{ path('app_admin_pizza_delete', {id: pizza.id}) }}"> Supprimer</a>
+            </div>
+         </div>
+      {% else %}
+         <h2>Aucune pizza !! </h2>
+      {% endfor %}
+   </div>
 
 {% endblock %}
