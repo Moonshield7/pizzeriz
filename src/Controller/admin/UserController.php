@@ -64,13 +64,13 @@ class UserController extends AbstractController
 		return $this->redirectToRoute('app_admin_user_list');
 	}
 
-	#[Route('/admin/user/par-nom/{name}', name: 'app_admin_user_listByName')]
-	public function listByName(UserRepository $repository, string $name): Response
-	{
-		$users = $repository->findByName($name);
+	// #[Route('/admin/user/par-nom/{name}', name: 'app_admin_user_listByName')]
+	// public function listByName(UserRepository $repository, string $name): Response
+	// {
+	// 	$users = $repository->findByName($name);
 
-		return $this->render('admin/user/listByName.html.twig', [
-			'users' => $users,
-		]);
-	}
+	// 	return $this->render('admin/user/listByName.html.twig', [
+	// 		'users' => $users,
+	// 	]);
+	// }
 }
