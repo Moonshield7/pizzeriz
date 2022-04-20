@@ -4,18 +4,19 @@
 
 {% block body %}
 
-   <div class="">
-      <div class="actions">
-         <h1>Les pizzas</h1>
-         <a href="{{ path('app_admin_pizza_create') }}" class = "bouton" title="Ajouter une pizza">Ajouter une pizza</a>
-      </div>
+   <div class="actions">
+         <h2>Les pizzas</h2>
+         <button>
+            <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter une pizza</a>
+         </button>
+   </div>
 
       {% for pizza in pizzas %}
 
-         <div class="card_pizza container p-0">
+         <div class="card_pizza">
             <div class="card_img">
                {% set imgName = "../uploads/"~ pizza.picture %}
-               <img src= {{imgName}} alt= {{ pizza.name }} >
+               <img width="500px" height="auto" src= {{imgName}} alt= {{ pizza.name }} >
             </div>
             <div class="card_text">
                 <div class="card-body">
