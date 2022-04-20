@@ -24,7 +24,7 @@ class PizzaController extends AbstractController
     {
       $pizzas =  $repository->findAll();
 
-      return $this->render('admin/home.html.twig', [
+      return $this->render('admin/pizza/list.html.twig', [
           'pizzas' => $pizzas,
       ]);
 
@@ -94,7 +94,7 @@ class PizzaController extends AbstractController
             return $this->redirectToRoute('app_admin_pizza_list');
         }
 
-        return $this->render('admin/pizza.update.html.twig', [
+        return $this->render('admin/pizza/update.html.twig', [
             'form' => $form->createView(),
             'pizza' => $pizza,
         ]);
@@ -112,7 +112,7 @@ class PizzaController extends AbstractController
 	public function listByName(PizzaRepository $repository, string $name ): Response
 	{
 		$pizzas = $repository->findByName($name);
-
+    
 		return $this->render('admin/pizza/listName.html.twig', [
 			'pizzas' =>  $pizzas,
 		]);
