@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variables */
+:root{
+    --color-white: #EFEFEF;
+    --color-black: #363636;
+    --color-btn: rgb(114, 175, 114);
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-raleway: 'Raleway', sans-serif;
+}
+
+/* général */
+body{
+    background-color: var(--color-white);
+}
+body p, body a, button{
+    font-family: var(--font-montserrat);
+}
+
+h2{
+    font-family: var(--font-raleway);
+    margin: 30px 250px;
+}
+h3{
+    font-family: var(--font-raleway);
+}
+button{
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid var(--color-white);
+    background: var(--color-btn);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    margin: 20px auto;
+}
+button:hover{
+    background: transparent;
+    border: 1px solid var(--color-btn);
+    color: var(--color-black);
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 20px;
+    box-shadow: var(--color-white) 0px 10px 10px 0px;
+}
+.navbar i{
+    color: var(--color-white);
+    font-size: 25px;
+    padding: 0 10px;
+}
+.navbar-left{
+    width: 90%;
+    padding-left: 50px;
+}
+.navbar-right{
+    width: 10%;
+
+}
+/* header */
+header{
+    width: 100%;
+    height: 600px;
+    background: url('https://cdn.pixabay.com/photo/2020/03/21/02/26/pizza-4952508_960_720.jpg') no-repeat center center / cover;
+    position: relative;
+}
+.header-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+header h1{
+    font-size: 90px;
+    color: #ffffff; 
+    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+}
+header p{
+    font-size: 25px;
+}
+/* card pizza */
+.pizza-card {
+    width: 70%;
+    margin: auto auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 0rem .6rem;
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+  }
+  .pizza-card h3 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+  .pizza-card-body {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    padding: 0 20px;
+  }
+  .pizza-card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8rem;
+    align-items: center;
+  }
+  .pizza-card-footer .price {
+    font-size: 3rem;
+    color: var(--color-white);
+  }
+  .pizza-card-img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: blur(2px);
+  }
+  .pizza-card-img .black-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .pizza-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+/* footer */
+footer{
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+footer a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+.line{
+    border-top: 2px solid var(--color-white);
+    margin: 0 100px;
+    padding-bottom: 20px;
+}
+.footer-top{
+    padding: 20px 0;
+    line-height: 30px;
+    text-align: center;
+}
+.footer-bottom{
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* formulaire d'inscription */
+.container-form{
+    width: 70%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.container-form h3{
+    padding: 15px 0;
+}
+.form-group{
+    padding: 10px 0;
+}
+.form-group input, .form-group textarea{
+    width:100%;
+    opacity:0.9;
+    background-color: white;
+    padding: 20px;
+    border: none;
+}
+.form-group label{
+    width: 100%;
+    font-size: 20px;
+    font-family: var(--font-montserrat);
+}

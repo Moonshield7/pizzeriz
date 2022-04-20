@@ -3,31 +3,44 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-    <div class="az_container">
-       <div class="az_title">
+    <header>
+        <div class="header-container">
             <h1>PizzaShop</h1>
             <p>Vos meilleures pizzas à portée de clic!</p>
-        </div> 
-    </div>
+        </div>
+    </header>
 
-    <h2 class="container">Nos pizzas:</h2>
+    <h2>Nos Pizzas:</h2>
 
-    {# #################### PREMIERE PIZZA #################### #}
-    <div class="card_pizza container p-0">
-            <div class="card_img">
-                <img src="../asset/bg_pizza.jpg" alt="pizza">
+    {% for pizza in pizzas %}
+
+        <div class="pizza-card">
+            <h3>
+                {# Une pizza sans nom #}
+                {{ pizza.name }}
+            </h3>
+            <p class="pizza-card-body">
+            {# Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, laborum. Id fugiat quas recusandae dolores. Maiores nostrum consequuntur ducimus soluta veritatis sit, necessitatibus ex sequi voluptates eveniet totam vero quas! #}
+                {{ pizza.description }}
+            </p>
+            <div class="pizza-card-footer">
+                <p class="price">
+                    {# Prix € #}
+                    {{ pizza.price}}&nbsp;€
+                </p>
+                <bouton class="btn">
+                    <i class="fa-solid fa-cart-shopping"></i>Ajouter au panier
+                </bouton>
             </div>
-            <div class="card_text">
-                <div class="card-body">
-                    <h5 class="card-title">Nom pizza</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p>Prix €</p>
-                    <button type="submit" class="btn btn-light">Ajouter au panier</button>
+            <div class="pizza-card-img">
+                <div class="black-frame"></div>
+                    {# IMAGE PIZZA #}
+                    <img src="{{ pizza.image }}" alt="{{ pizza.title }}" />
                 </div>
             </div>
+        </div>
         
-    </div>
+  {% endfor %}
 
 {% endblock %}
 
