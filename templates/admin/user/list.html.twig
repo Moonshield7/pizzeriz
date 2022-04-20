@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+
+{# TITRE + BOUTON NOUVEL UTILISATEUR #}
+    <div class="container">
+        <div class="leftpart">
+            <h1>Les Utilisateurs</h1>
+        </div>
+
+        <div class="rightpart">
+            <a href="#" title="Ajouter un utilisateur"><i class="fas fa-plus-circle"></i> Nouvel utilisateur</a>
+        </div>      
+    </div>
+
+{# RECHERCHE AVANCEE #}
+
+    <div>
+    
+    </div>
+
+
+
+{# TABLEAU DES UTILISATEURS #}
+    <thead>
+        <th>
+            <td>ID</td>
+            <td>Email</td>
+            <td>Téléphone</td>
+            <td>Actions</td>
+        </th>
+    </thead>
+
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td> {{user.id}} </td>
+                <td> {{user.email}} </td>
+                <td> {{user.phoneNumber}} </td>
+                <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
+            </tr>  
+        {% endfor %}
+    </tbody>
+
+
+
+
+
+{% endblock %}
