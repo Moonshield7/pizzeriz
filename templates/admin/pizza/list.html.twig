@@ -5,34 +5,40 @@
 {% block body %}
 
    <div class="actions">
-         <h2>Les pizzas</h2>
-         <button>
-            <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter une pizza</a>
-         </button>
+      <h2>Les pizzas</h2>
+      <button>
+         <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter une pizza</a>
+      </button>
    </div>
 
       {% for pizza in pizzas %}
 
-         <div class="card_pizza">
-            <div class="card_img">
-               {% set imgName = "../uploads/"~ pizza.picture %}
-               <img width="500px" height="auto" src= {{imgName}} alt= {{ pizza.name }} >
-            </div>
-            <div class="card_text">
-                <div class="card-body">
-                    <h5 class="card-title">{{ pizza.name }} </h5>
-                    <p class="card-text">{{ pizza.description }}</p>
-                    <p>Prix :  {{ pizza.price }}€</p>
+         <div class="home-pizza-card">
+                <h3>
+                    {{ pizza.name }}
+                </h3>
+                <p class="home-pizza-card-body">
+                    {{ pizza.description }}
+                </p>
+                <div class="home-pizza-card-footer">
+                     <button class="home-pizza-card-btn list-pizza-btn">
+                        <a href="{{ path('app_admin_pizza_update', {'id': pizza.id}) }}" title="modifier la pizza">Modifier <i class="fa-solid fa-pen"></i></a>
+                     </button>
+                     <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
+                        <a href="{{ path('app_admin_pizza_delete', {'id': pizza.id}) }}" title="supprimer la pizza">Supprimer<i class="fa-solid fa-trash"></i></a>
+                     </button>
+                </div>
+                <div class="home-pizza-card-img">
+                    <div class="black-frame"></div>
+                        <img width="100px" height="100px" src="{{ '../uploads/' ~pizza.picture }}" alt="{{ pizza.name }}" />
+                    </div>
                 </div>
             </div>
-            <div class="row gap-5">
-               <a class="btn btn-warning" href="{{ path('app_admin_pizza_update', {id: pizza.id}) }}"> Modifier</a>
-               <a class="btn btn-danger" href="{{ path('app_admin_pizza_delete', {id: pizza.id}) }}"> Supprimer</a>
-            </div>
-         </div>
+
       {% else %}
+
          <h2>Aucune pizza !! </h2>
+
       {% endfor %}
-   </div>
 
 {% endblock %}

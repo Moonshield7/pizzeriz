@@ -6,6 +6,7 @@ use App\Entity\Pizza;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,12 +20,27 @@ class PizzaType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label'=> 'Nom',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez taper un nom',
+                    ]),
+                ]
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez taper une description',
+                    ]),
+                ]
             ])
             ->add('price', TextType::class, [
-                'label' => 'Prix'
+                'label' => 'Prix',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez taper un prix',
+                    ]),
+                ]
             ])
             // ->add('createdAt')
             // ->add('updatedAt')
@@ -35,7 +51,7 @@ class PizzaType extends AbstractType
                     new Image([
                        'mimeTypes' => ['image/jpeg', 'image/png'],
                         'mimeTypesMessage' => 'Les formats autorisés sont .jpg ou .png',
-                        'maxSize' => '2M',
+                        'maxSize' => '10M',
                         'maxSizeMessage' => 'Le poids maximal du fichier est : {{ limit }} {{ suffix }} ({{ name }}: {{ size }} {{ suffix }})',
                     ]),
                 ],
@@ -43,9 +59,6 @@ class PizzaType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => $options['picture'] ? 'Modifier' : 'Ajouter',
                 'validate' => false,
-                'attr' => [
-                    'class' => 'd-block mx-auto col-3 my-3 btn btn-primary'
-                ]
             ])
         ;
     }
