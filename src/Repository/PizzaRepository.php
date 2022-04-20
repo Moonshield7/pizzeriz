@@ -45,6 +45,21 @@ class PizzaRepository extends ServiceEntityRepository
         }
     }
 
+
+       /**
+     * Recherche les pizzas par leurs noms
+     */
+    public function findByName(string $name): array
+    {
+        return $this
+            ->createQueryBuilder('pizza')
+            ->andWhere('pizza.name LIKE :name')
+            ->setParameter('name', "%$name%")
+            ->orderBy('pizza.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Pizza[] Returns an array of Pizza objects
     //  */
