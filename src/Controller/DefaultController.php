@@ -15,9 +15,11 @@ class DefaultController extends AbstractController
     #[Route("/", name: "app_default_show_home", methods: ["GET"])]
     public function showHome( Request $request, PizzaRepository $repository): Response
     {
-      $pizza =  $repository->findAll();
+      $pizzas =  $repository->findAll();
 
-      return $this->render('default/home.html.twig');
+      return $this->render('default/home.html.twig', [
+        'pizzas' => $pizzas,
+      ]);
 
     }
 

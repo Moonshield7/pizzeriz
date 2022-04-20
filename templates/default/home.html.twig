@@ -16,16 +16,13 @@
 
         <div class="pizza-card">
             <h3>
-                {# Une pizza sans nom #}
                 {{ pizza.name }}
             </h3>
             <p class="pizza-card-body">
-            {# Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, laborum. Id fugiat quas recusandae dolores. Maiores nostrum consequuntur ducimus soluta veritatis sit, necessitatibus ex sequi voluptates eveniet totam vero quas! #}
                 {{ pizza.description }}
             </p>
             <div class="pizza-card-footer">
                 <p class="price">
-                    {# Prix € #}
                     {{ pizza.price}}&nbsp;€
                 </p>
                 <bouton class="btn">
@@ -34,8 +31,7 @@
             </div>
             <div class="pizza-card-img">
                 <div class="black-frame"></div>
-                    {# IMAGE PIZZA #}
-                    <img src="{{ pizza.image }}" alt="{{ pizza.title }}" />
+                    <img width="100px" height="100px" src="{{ '../uploads/' ~pizza.picture }}" alt="{{ pizza.name }}" />
                 </div>
             </div>
         </div>
