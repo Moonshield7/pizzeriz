@@ -37,12 +37,14 @@ class Command
     #[ORM\JoinColumn(nullable: false)]
     private $user;
 
-    #[ORM\ManyToMany(targetEntity: Pizza::class)]
-    private $pizzas;
+    #[ORM\OneToMany(mappedBy: 'command', targetEntity: Article::class)]
+    private $articles;
+
 
     public function __construct()
     {
         $this->pizzas = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -123,26 +125,33 @@ class Command
     }
 
     /**
-     * @return Collection<int, Pizza>
+     * @return Collection<int, Article>
      */
-    public function getPizzas(): Collection
+    public function getArticles(): Collection
     {
-        return $this->pizzas;
+        return $this->articles;
     }
 
-    public function addPizza(Pizza $pizza): self
+    public function addArticle(Article $article): self
     {
-        if (!$this->pizzas->contains($pizza)) {
-            $this->pizzas[] = $pizza;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCommand($this);
         }
 
         return $this;
     }
 
-    public function removePizza(Pizza $pizza): self
+    public function removeArticle(Article $article): self
     {
-        $this->pizzas->removeElement($pizza);
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getCommand() === $this) {
+                $article->setCommand(null);
+            }
+        }
 
         return $this;
     }
+
 }
