@@ -1,10 +1,19 @@
+/*
+==========
+MINI RESET
+==========
+*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* variables */
+/*
+============================
+DEFINITION DES VARIABLES CSS
+============================
+*/
 :root{
     --color-white: #EFEFEF;
     --color-black: #363636;
@@ -13,7 +22,11 @@
     --font-raleway: 'Raleway', sans-serif;
 }
 
-/* général */
+/*
+==================================
+PARTIE CSS DES ELEMENTS PRINCIPAUX 
+==================================
+*/
 body{
     background-color: var(--color-white);
 }
@@ -28,20 +41,23 @@ h2{
 h3{
     font-family: var(--font-raleway);
 }
+i{
+    color: var(--color-white);
+    font-size: 25px;
+    padding: 0 10px;
+}
 
-
-/* navbar */
+/*
+===========================
+PARTIE CSS DE LA NAVIGATION
+===========================
+*/
 .navbar{
     display: flex;
     width: 100%;
     background-color: var(--color-black);
     padding: 20px;
     box-shadow: var(--color-white) 0px 10px 10px 0px;
-}
-.navbar i{
-    color: var(--color-white);
-    font-size: 25px;
-    padding: 0 10px;
 }
 .navbar-left{
     width: 90%;
@@ -51,90 +67,11 @@ h3{
     width: 10%;
 
 }
-/* header */
-header{
-    width: 100%;
-    height: 600px;
-    background: url('https://cdn.pixabay.com/photo/2020/03/21/02/26/pizza-4952508_960_720.jpg') no-repeat center center / cover;
-    position: relative;
-}
-.header-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-}
-header h1{
-    font-size: 90px;
-    color: #ffffff; 
-    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
-}
-header p{
-    font-size: 25px;
-}
-/* card pizza */
-.pizza-card {
-    width: 70%;
-    margin: auto auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 1.4rem;
-  }
-  .pizza-card h3 {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--color-white);
-    padding: 2rem;
-  }
-  .pizza-card-body {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-white);
-  }
-  .pizza-card-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 8rem;
-    align-items: center;
-  }
-  .pizza-card-footer .price {
-    font-size: 3rem;
-    color: var(--color-white);
-  }
-  .pizza-card-img {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    filter: blur(1px);
-  }
-  .pizza-card-img .black-frame {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  .pizza-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .pizza-card-btn{
-      padding: 10px 50px;
-      margin: 0;
-      border: none;
-  }
-  .pizza-card-btn:hover{
-      color: white;
-  }
-/* footer */
+/*
+====================
+PARTIE CSS DU FOOTER
+====================
+*/
 footer{
     width: 100%;
     background-color: var(--color-black);
@@ -161,7 +98,106 @@ footer a{
     text-align: center;
 }
 
-/* formulaire d'inscription */
+/*
+=====================================
+PARTIE CSS DU HEADER : HOME.HTML.TWIG
+=====================================
+*/
+header{
+    width: 100%;
+    height: 600px;
+    background: url('https://cdn.pixabay.com/photo/2020/03/21/02/26/pizza-4952508_960_720.jpg') no-repeat center center / cover;
+    position: relative;
+}
+.header-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+header h1{
+    font-size: 90px;
+    color: #ffffff; 
+    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+}
+header p{
+    font-size: 25px;
+}
+/*
+============================================
+PARTIE CSS DES CARDS PIZZAS : HOME.HTML.TWIG
+============================================
+*/
+.home-pizza-card {
+    width: 70%;
+    margin: auto auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+}
+.home-pizza-card h3 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-white);
+    padding: 2rem;
+}
+.home-pizza-card-body {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-white);
+}
+.home-pizza-card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8rem;
+    align-items: center;
+}
+.home-pizza-card-footer .price {
+    font-size: 3rem;
+    color: var(--color-white);
+}
+.home-pizza-card-img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: blur(1px);
+}
+.home-pizza-card-img .black-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.home-pizza-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.home-pizza-card-btn{
+      padding: 10px 50px;
+      margin: 0;
+      border: none;
+}
+.home-pizza-card-btn:hover{
+      color: white;
+}
+.home-pizza-card-btn i{
+      padding-left: 15px;
+}
+/*
+=================================================================
+PARTIE CSS DU FORMULAIRES DINSCRIPTION :  FORM_REGISTER.HTML.TWIG
+        ET DU FORMULAIRE CONNEXION : LOGIN.HTML.TWIG
+=================================================================
+*/
 .container-form{
     width: 70%;
     margin: auto;
@@ -179,6 +215,14 @@ footer a{
     background-color: white;
     padding: 20px;
     border: none;
+    /* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+
+    margin: 30px 0;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, 
+                rgb(31, 193, 27) 0px 0px 0px 6px, 
+                rgb(255, 217, 19) 0px 0px 0px 9px, 
+                rgb(255, 156, 85) 0px 0px 0px 12px, 
+                rgb(255, 85, 85) 0px 0px 0px 15px;
 }
 .form-group label{
     width: 100%;
@@ -200,4 +244,25 @@ button:hover{
     background: transparent;
     border: 1px solid var(--color-btn);
     color: var(--color-black);
+}
+/*
+=============================================
+PARTIE CSS DU DASHBOARD : DASHBOARD.HTML.TWIG
+=============================================
+*/
+.dashboard-container{
+    width: 30%;
+    margin: 50px 250px;
+    display: block;
+}
+.dashboard-card{
+    background-color: var(--color-black);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    color: var(--color-white);
+    margin: 50px 0;
+    padding: 20px 30px;
+}
+.dashboard-card a{
+    text-decoration: none;
+    color: var(--color-white);
 }
