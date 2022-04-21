@@ -102,9 +102,6 @@ footer{
     width: 100%;
     background-color: var(--color-black);
     color: var(--color-white);
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 .line{
     border-top: 2px solid var(--color-white);
