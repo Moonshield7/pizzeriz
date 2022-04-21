@@ -61,6 +61,8 @@ class UserType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
+        $resolver->define('handleDates');
+        
         $resolver->setDefaults([
             'data_class' => User::class,
         ]);
