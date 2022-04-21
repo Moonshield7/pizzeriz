@@ -30,6 +30,12 @@ PARTIE CSS DES ELEMENTS PRINCIPAUX
 */
 body{
     background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh ;
+}
+.container {
+    flex-grow: 2;
 }
 p, a, button, label, input{
     font-family: var(--font-montserrat);
@@ -57,6 +63,7 @@ span{
     font-family: var(--font-montserrat);
     text-align: center;
     display: block;
+    margin-bottom: 1rem;
 }
 span a{
     color: var(--color-black);
@@ -119,7 +126,6 @@ footer{
     padding: 20px;
     text-align: center;
 }
-
 /*
 =====================================
 PARTIE CSS DU HEADER : HOME.HTML.TWIG
@@ -161,12 +167,11 @@ PARTIE CSS DES CARDS PIZZAS : HOME.HTML.TWIG
     text-align: center;
     font-size: 3rem;
     color: var(--color-white);
-    padding: 2rem;
 }
 .home-pizza-card-body {
     text-align: center;
     font-size: 1.2rem;
-    padding: 0 50px;
+    padding: 1rem 3rem;
     color: var(--color-white);
 }
 .home-pizza-card-footer {
@@ -359,3 +364,20 @@ PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
 PARTIE CSS DE LA LISTE DES COMMANDES : LIST.HTML.TWIG
 =====================================================
 */
+
+/*
+=====================================
+PARTIE CSS DU PANIER : LIST.HTML.TWIG
+=====================================
+*/
+.quantity{
+    color: var(--color-white);
+}
+.quantity a{
+    border: 1px solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    margin: 0 2rem;
+}

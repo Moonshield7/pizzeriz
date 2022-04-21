@@ -4,55 +4,47 @@
 
 {% block body %}
 
-   <div class="actions">
-      <h2>Mes articles</h2>
-      
-   </div>
+    <div class="container">
+        <h2>Mes articles</h2>
 
-      {% for article in articles %}
+        {% for article in articles %}
 
-         <div class="home-pizza-card">
-                <h3>
-                    {{article.pizza.name }}
-                </h3>
-                <p class="home-pizza-card-body">
-                    {{ article.pizza.description }}
-                </p>
-                <div class="home-pizza-card-footer">
-                    <div>
-                         <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
-                            <a href="{{ path('app_account_panier_subtractQuantity', {id: article.id}) }}" title="retirer 1">-</a>
-                        </button>
-
-                        {{ article.quantity }}
-                         <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
-                            
-                            
-
-                            <a href="{{ path('app_account_panier_addQuantity', {id: article.id}) }}" title="ajouter 1">+</a>
-                        </button>
-                    </div>
-                    <div>
-                        {{ article.quantity * article.pizza.price }}
-                    </div>
-                    <div>
-                         <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
-                            <a href="{{ path('app_account_panier_remove',{id: article.id} ) }}" title="supprimer l'article">Supprimer<i class="fa-solid fa-trash"></i></a>
-                        </button>
-                    </div>
-                    
+        <div class="home-pizza-card">
+            <h3>
+                {{article.pizza.name }}
+            </h3>
+            <p class="home-pizza-card-body">
+               {{ article.pizza.description }}
+            </p>
+            <div class="home-pizza-card-footer">
+                <div class="quantity">
+                    <a href="{{ path('app_account_panier_subtractQuantity', {id: article.id}) }}" title="retirer 1">-</a>
+                    {{ article.quantity }}
+                    <a href="{{ path('app_account_panier_addQuantity', {id: article.id}) }}" title="ajouter 1">+</a>
                 </div>
+                <div class="price">
+                    {{ article.quantity * article.pizza.price }}&nbsp;€
+                </div>
+                <div>
+                    <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
+                        <a href="{{ path('app_account_panier_remove',{id: article.id} ) }}" title="supprimer l'article">Supprimer<i class="fa-solid fa-trash"></i></a>
+                    </button>
+                </div>
+
                 <div class="home-pizza-card-img">
-                    <div class="black-frame"></div>
+                   <div class="black-frame"></div>
                         <img width="100px" height="100px" src="{{ '../uploads/' ~ article.pizza.picture }}" alt="{{ article.pizza.name }}" />
                     </div>
                 </div>
             </div>
+            <button>Commander</button>
+        </div>
 
-      {% else %}
+        {% else %}
+            <span>Aucun article !! </span>
+        {% endfor %}
+    </div>
 
-         <h2>Aucun article !! </h2>
-
-      {% endfor %}
+    
 
 {% endblock %}

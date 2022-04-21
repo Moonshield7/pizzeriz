@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Accueil !{% endblock %}</title>
@@ -14,11 +15,8 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="/style.css">
         {% endblock %}
-        
-        
-        
-
     </head>
+
     <body>
 
         {# NAV #}
@@ -29,8 +27,7 @@
         {# FOOTER #}
         {% include "/include/_footer.html.twig" %}
 
-        {% block javascripts %}
-            <script src="/app.js"></script>
-        {% endblock %}
+        {% block javascripts %}{% endblock %}
     </body>
+
 </html>
