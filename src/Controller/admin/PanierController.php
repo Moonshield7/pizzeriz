@@ -7,6 +7,7 @@ namespace App\Controller\admin;
 use App\Entity\Pizza;
 use App\Entity\Panier;
 use App\Entity\Article;
+use App\Form\RegisterType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
@@ -93,16 +94,19 @@ class PanierController extends AbstractController
 
     }
     #[Route('/account/commande/recap', name:'app_account_commande_recap', methods:['GET'])]
-    public function command(  UserRepository $userRepository): Response
+    public function command( Request $request,  UserRepository $userRepository): Response
     {
         $user = $userRepository->find($this->getUser());
 
         $panier = $user->getPanier();
          $articles = $panier->getArticles();
+         $form = $this->createForm(RegisterType::class, $user)
+                ->handleRequest($request);
        
          return $this->render('account/commande/recap.html.twig', [
              'user'=>$user ,
-             'articles'=> $articles
+             'articles'=> $articles,
+             'form' => $form->createView()
          ]
         );
 
