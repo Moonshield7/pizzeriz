@@ -7,9 +7,11 @@ namespace App\Controller\admin;
 use App\Entity\Pizza;
 use App\Entity\Panier;
 use App\Entity\Article;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -88,6 +90,22 @@ class PanierController extends AbstractController
         $repository->remove($article);
 
         return $this->redirectToRoute('app_account_panier_list');
+
+    }
+    #[Route('/account/commande/recap', name:'app_account_commande_recap', methods:['GET'])]
+    public function command(  UserRepository $userRepository): Response
+    {
+        $user = $userRepository->find($this->getUser());
+
+        $panier = $user->getPanier();
+         $articles = $panier->getArticles();
+       
+         return $this->render('account/commande/recap.html.twig', [
+             'user'=>$user ,
+             'articles'=> $articles
+         ]
+        );
+
 
     }
     
