@@ -31,9 +31,12 @@
                     {{form_row(form.complement )}}
                 </div>
 
-                <div class="row justify-content-center">
-                    <a href="#" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> Valider la commande</a>
+                <div class="form-group">
+                    {{form_row(form.submit )}}
                 </div>
+                {# <div class="row justify-content-center">
+                    <a href="#" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> Valider la commande</a>
+                </div> #}
             </div>
             <div class="hidden">
                 {{form_rest(form)}}
