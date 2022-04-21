@@ -5,30 +5,29 @@
 {% block body %}
 
     <div class="container">
-    <h2>Gestion de la liste des commandes</h2>
+        <div class="actions">
+            <h2>Gestion de la liste des commandes</h2>
+        </div>
             {% if commands is not empty %}
-            
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Date création</th>
-                            {# <th>Téléphone</th>
-                            <th>Actions</th> #}
-                        </tr>
-                    </thead>
 
-                    <tbody>
-                        {% for command in commands %}
-                            <tr>
-                                <td> {{command.id}} </td>
-                                <td> {{command.createdAt}} </td>
-                            {#  <td> {{command.phoneNumber}} </td> #}
-                                {# <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td> #}
-                            </tr> 
-                        {% endfor %}
-                    </tbody>
-                </table>
+        <div class="container-table">
+            <div class="container-thead">
+                <p>ID</p>
+                <p>Date de création</p>
+                <p>Utilisateur</p>
+                <p>Total</p>
+
+            </div>
+            <div class="container-tbody">
+                {% for command in commands %}
+                    <p>{{command.id}}</p>
+                    <p>{{command.createdAt | date('d/m/Y')}}</p>
+                    <p>{{command.user.name}}</p>
+                    <p>{{command.total}}€</p>
+                {% endfor %}
+            </div>
+        </div>       
+
             {% else %}
                 <span>Aucune commande !</span>
             {% endif %}
