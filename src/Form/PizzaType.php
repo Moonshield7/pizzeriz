@@ -19,7 +19,7 @@ class PizzaType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label'=> 'Nom',
+                'label'=> 'Nom :',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez taper un nom',
@@ -27,7 +27,7 @@ class PizzaType extends AbstractType
                 ]
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description',
+                'label' => 'Description :',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez taper une description',
@@ -35,7 +35,7 @@ class PizzaType extends AbstractType
                 ]
             ])
             ->add('price', TextType::class, [
-                'label' => 'Prix',
+                'label' => 'Prix :',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez taper un prix',
@@ -45,7 +45,7 @@ class PizzaType extends AbstractType
             // ->add('createdAt')
             // ->add('updatedAt')
             ->add('picture', FileType::class, [
-                'label' => 'Photo',
+                'label' => 'Photo :',
                 'data_class' => null,
                 'constraints' => [
                     new Image([

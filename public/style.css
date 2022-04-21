@@ -58,6 +58,9 @@ span{
     text-align: center;
     display: block;
 }
+span a{
+    color: var(--color-black);
+}
 .btn-add{
     text-align: center;
     
@@ -279,6 +282,31 @@ PARTIE CSS DE LA LISTE DES PIZZAS : LIST.HTML.TWIG
     margin-bottom: 2rem;
 }
 /*
+===========================================================
+PARTIE CSS DE LA MODIFICATION DES PIZZAS : UPDATE.HTML.TWIG
+===========================================================
+*/
+.container-update{
+    margin: 5rem auto ;
+    padding: 2rem;
+    width: 50%;
+    border: var(--color-black 2px solid);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.container-update input, .container-update select{
+    width: 10rem;
+    padding: 2px;
+    margin: 0.5rem 1rem;
+}
+.container-update textarea{
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    border: none;
+    margin-bottom: 1rem;
+}
+/*
 ========================================================
 PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
 ========================================================
@@ -295,8 +323,6 @@ PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
     width: 10rem;
     padding: 2px;
     margin-left: 10px;
-}
-.container-search button{
 }
 .container-table i{
     color: var(--color-black);

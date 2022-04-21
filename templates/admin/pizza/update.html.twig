@@ -2,30 +2,29 @@
 
 {% block body %}
 
-    <h2>Modifier {{ pizza.name }}</h2>
-    <a href="{{ path('app_admin_pizza_list') }}" class="text-dark"><i class="fa-solid fa-arrow-left"></i> Retour aux pizzas</a>
+    <h2>Modifier la pizza suivante : {{ pizza.name }}</h2>
+    <span><a href="{{ path('app_admin_pizza_list') }}">Retour aux pizzas</a></span>
+    
 
-    <div class="row">
-        <div class="col-8 mx-auto">
-            {{ form_start(form) }}
+    <div class="container-update">
+        {{ form_start(form) }}
 
-            <div class="row">
-                <div class="col-12">{{ form_row(form.name) }}</div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">{{ form_row(form.description) }}</div>
-            </div>
-
-            <div class="row">
-                <div class="col-6">{{ form_row(form.price) }}</div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">{{ form_row(form.picture) }}</div>
-            </div>
-
-            {{ form_end(form) }}
+        <div class="form-update">
+            {{ form_row(form.name) }}
         </div>
+
+        <div class="form-update">
+            {{ form_row(form.description) }}
+        </div>
+
+        <div class="form-update">
+            {{ form_row(form.price) }}
+        </div>
+
+        <div class="form-update">
+            {{ form_row(form.picture) }}
+        </div>
+
+        {{ form_end(form) }}
     </div>
 {% endblock %}
