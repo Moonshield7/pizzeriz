@@ -78,7 +78,9 @@ span a{
 .btn-add a:hover{
    text-decoration: underline; 
 }
-
+.hidden{
+    visibility: hidden
+}
 /*
 ===========================
 PARTIE CSS DE LA NAVIGATION
@@ -360,12 +362,6 @@ PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
     margin-bottom: 2rem;
 }
 /*
-=====================================================
-PARTIE CSS DE LA LISTE DES COMMANDES : LIST.HTML.TWIG
-=====================================================
-*/
-
-/*
 =====================================
 PARTIE CSS DU PANIER : LIST.HTML.TWIG
 =====================================
@@ -380,4 +376,252 @@ PARTIE CSS DU PANIER : LIST.HTML.TWIG
     border-radius: 50%;
     padding: 0.25rem 0.5rem;
     margin: 0 2rem;
+}
+
+/* 
+==================================
+PARTIE CSS DE LA PIZZA EN COMMANDE
+==================================
+*/
+:root {
+    --bg: #EFEFEF;
+    --crust: #fda345;
+    --sauce: #a20e0e;
+    --cheese: #f3cf7a;
+    --pepperoni: #8f1d14;
+}
+.pizza-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.pizza {
+    position: relative;
+    width: 510px;
+    height: 510px;
+    background: var(--crust);
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 16px 10px #E66C30, 0px 0px 20px 1px black;
+    z-index: -1; 
+    animation: spin 12s infinite linear;
+}
+  
+@keyframes spin {
+    0%{
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+/* sauce */
+.pizza::before {
+    content: "";
+    color: var(--sauce);
+    background: currentColor;
+    position: absolute;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    box-shadow: 1px 1px 10px 2px currentColor;
+}
+  
+/* cheese */
+.pizza::after {
+    content: "";
+    background: var(--cheese);
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    top: 30px;
+    left: 30px;
+    box-shadow: inset 1px 1px 80px 60px #EFB45B;
+}
+  
+.pepperonis {
+    position: absolute;
+    background: var(--crust);
+    width: 0;
+    height: 0;
+    top: 225px;
+    left: 225px;
+    z-index: 1;
+}
+  
+.pepperoni {
+    position: absolute; 
+    width: 60px;
+    height: 60px;
+    background: var(--pepperoni);
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px black,1px 1px 4px 3px #EFB45B;
+}
+  
+/*  pepperoni fat  */
+.pepperoni::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    color: white;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: .3;
+    top: 12px;
+    left: 12px;
+    box-shadow: 8px 25px currentColor;
+}
+  
+.pepperoni::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 15px;
+    color: white;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: .3;
+    top: 18px;
+    left: 38px;
+}
+  
+.pepperoni-0 {
+    top: 0px;
+    left: 0px;
+}
+  
+.pepperoni-1 {
+    top: 90px;
+    left: 0px;
+}
+  
+.pepperoni-2 {
+    top: 50px;
+    left: 80px;
+}
+  
+.pepperoni-3 {
+    top: -50px;
+    left: 80px;
+}
+  
+.pepperoni-4 {
+    top: -90px;
+    left: 0px;
+}
+  
+.pepperoni-5 {
+    top: -50px;
+    left: -80px;
+}
+  
+.pepperoni-6 {
+    top: 50px;
+    left: -80px;
+}
+  
+.pepperoni-7 {
+    top: 170px;
+    left: 55px;
+}
+  
+.pepperoni-8 {
+    top: 170px;
+    left: -55px;
+}
+  
+.pepperoni-9 {
+    top: 130px;
+    left: -130px;
+}
+  
+.pepperoni-10 {
+    top: 40px;
+    left: -175px;
+}
+  
+.pepperoni-11 {
+    top: -40px;
+    left: -175px;
+}
+  
+.pepperoni-12 {
+    top: -130px;
+    left: -130px;
+}
+  
+.pepperoni-13 {
+    top: -170px;
+    left: -55px;
+}
+  
+.pepperoni-14 {
+    top: -170px;
+    left: 55px;
+}
+  
+.pepperoni-15 {
+    top: -130px;
+    left: 130px;
+}
+  
+.pepperoni-16 {
+    top: -40px;
+    left: 175px;
+}
+  
+.pepperoni-17 {
+    top: 40px;
+    left: 175px;
+}
+  
+.pepperoni-18 {
+    top: 130px;
+    left: 130px;
+}
+  
+.cuts {
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    top: 255px;
+    z-index: 5;
+}
+  
+.cuts::before {
+    content: "";
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    transform: rotate(60deg);
+    z-index: 5;
+}
+  
+.cuts::after {
+    content: "";
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    transform: rotate(-60deg);
+    z-index: 5;
+}
+  
+.slice{
+    position: absolute;
+    color: var(--bg);
+    width: 0;
+    height: 0;
+    border-left: 164px solid transparent;
+    border-right: 164px solid transparent;
+    border-top: 285px solid currentColor;
+    z-index: 6;
+    left: 91px;
+    top: -29px;
+    transform-origin: 50% 100%;
 }
