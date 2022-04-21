@@ -1,0 +1,48 @@
+ {% extends "base.html.twig" %}
+
+ {% block title %}Passer la commande{% endblock %}
+
+ {% block body %}
+    <div>
+     {% for article in articles %}
+         {{ article.quantity}} X {{ article.pizza.name}} : {{ article.pizza.price * article.quantity }} € <br>
+     {% endfor %}
+    </div>
+     <h2>Vos coordonnées</h2>
+
+    <div class="container-form">
+
+        {{form_start(form)}}
+
+
+            <div class="container-form-adresse">
+                <h3>Votre adresse</h3>
+
+                <div class="form-group">
+                    {{form_row(form.city)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(form.postalCode)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(form.address)}}
+                </div>
+                <div class="form-group">
+                    {{form_row(form.complement )}}
+                </div>
+
+                <div class="row justify-content-center">
+                    <a href="#" class="btn btn-success col-6 text-center"><i class="fas fa-check"></i> Valider la commande</a>
+                </div>
+            </div>
+            <div class="hidden">
+                {{form_rest(form)}}
+            </div>
+        {{form_end(form)}}
+    </div>
+ 
+ 
+ 
+ 
+ 
+ {% endblock %}
