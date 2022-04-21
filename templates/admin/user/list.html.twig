@@ -4,54 +4,55 @@
 
 {% block body %}
 
-    <div class="actions">
-      <h2>Gestion de la liste des utilisateurs</h2>
-      {# <button>
-         <a href="{{ path('app_register') }}" title="Ajouter un utilisateur">Ajouter un nouvel utilisateur</a>
-      </button> #}
-   </div>
+    <div class="container">
+        <div class="actions">
+            <h2>Gestion de la liste des utilisateurs</h2>
+        </div>
 
-    {# RECHERCHE AVANCEE #}
-    <div class="container-search">
-        {{form_start(form)}}
-            
-            <div class="form-search">
-                {{form_row(form.limit)}}
+        {# RECHERCHE AVANCEE #}
+        <div class="container-search">
+            {{form_start(form)}}
+                
+                <div class="form-search">
+                    {{form_row(form.limit)}}
+                </div>
+                <div class="form-search">
+                    {{form_row(form.page)}}
+                </div>
+                <div class="form-search">
+                    {{form_row(form.orderBy)}}
+                </div>
+                <div class="form-search">
+                    {{form_row(form.direction)}}
+                </div>
+            {{form_end(form)}}
+        </div>
+
+
+
+        {# TABLEAU DES UTILISATEURS #}
+        <div class="container-table">
+            <div class="container-thead">
+                <p>ID</p>
+                <p>Email</p>
+                <p>Téléphone</p>
+                <p>Actions</p>
             </div>
-            <div class="form-search">
-                {{form_row(form.page)}}
+            <div class="container-tbody">
+                {% for user in users %}
+                    <p>{{user.id}}</p>
+                    <p>{{user.email}}</p>
+                    <p>{{user.phoneNumber}}</p>
+                    <p>
+                        <a href=" {{path('app_admin_user_update', {id: user.id})}} " tilte="Modifier"><i class="fas fa-pen"></i></a> |
+                        <a href=" {{path('app_admin_user_delete', {id: user.id})}} " title="Supprimer"><i class="fas fa-trash"></i></a>
+                    </p>
+                {% endfor %}
             </div>
-            <div class="form-search">
-                {{form_row(form.orderBy)}}
-            </div>
-            <div class="form-search">
-                {{form_row(form.direction)}}
-            </div>
-        {{form_end(form)}}
+        </div>
     </div>
 
-
-
-    {# TABLEAU DES UTILISATEURS #}
-    <div class="container-table">
-        <div class="container-thead">
-            <p>ID</p>
-            <p>Email</p>
-            <p>Téléphone</p>
-            <p>Actions</p>
-        </div>
-        <div class="container-tbody">
-            {% for user in users %}
-                <p>{{user.id}}</p>
-                <p>{{user.email}}</p>
-                <p>{{user.phoneNumber}}</p>
-                <p>
-                    <a href=" {{path('app_admin_user_update', {id: user.id})}} " tilte="Modifier"><i class="fas fa-pen"></i></a> |
-                    <a href=" {{path('app_admin_user_delete', {id: user.id})}} " title="Supprimer"><i class="fas fa-trash"></i></a>
-                </p>
-            {% endfor %}
-        </div>
-    </div>
+    
 
 
 
