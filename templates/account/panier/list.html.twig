@@ -7,6 +7,11 @@
     <div class="container">
         <h2>Mes articles</h2>
 
+        {% if articles is empty %}
+        
+            <span>Aucun article !! </span>
+        
+        {% else %}
         {% for article in articles %}
 
         <div class="home-pizza-card">
@@ -37,12 +42,12 @@
                     </div>
                 </div>
             </div>
-            <button><a href=" {{path('app_account_commande_recap')}} ">Commander</a></button>
         </div>
 
-        {% else %}
-            <span>Aucun article !! </span>
         {% endfor %}
+
+            <button><a href=" {{path('app_account_commande_recap')}} ">Commander</a></button>
+        {% endif %}
     </div>
 
     
