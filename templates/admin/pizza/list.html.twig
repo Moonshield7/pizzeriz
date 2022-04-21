@@ -4,41 +4,41 @@
 
 {% block body %}
 
-   <div class="container">
+    <div class="container">
 
-      <div class="actions">
-         <h2>Gestion de la liste des pizzas</h2>
-         <div class="btn-add">
-            <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza" >Ajouter une pizza</a>
-         </div>
-      </div>
-
-      {% for pizza in pizzas %}
-
-         <div class="home-pizza-card">
-            <h3>{{ pizza.name }}</h3>
-            <p class="home-pizza-card-body">
-                {{ pizza.description }}
-            </p>
-            <div class="home-pizza-card-footer">
-                <button class="home-pizza-card-btn list-pizza-btn">
-                    <a href="{{ path('app_admin_pizza_update', {'id': pizza.id}) }}">Modifier <i class="fa-solid fa-pen"></i></a>
-                </button>
-                <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
-                       <a href="{{ path('app_admin_pizza_delete', {'id': pizza.id}) }}">Supprimer<i class="fa-solid fa-trash"></i></a>
-                </button>
-            </div>
-            <div class="home-pizza-card-img">
-                <div class="black-frame"></div>
-                    <img width="100px" height="100px" src="{{ '../uploads/' ~pizza.picture }}" alt="{{ pizza.name }}" />
-                </div>
+        <div class="actions">
+            <h2>Gestion de la liste des pizzas</h2>
+            <div class="btn-add">
+                <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza" >Ajouter une pizza</a>
             </div>
         </div>
 
+        {% for pizza in pizzas %}
+
+            <div class="home-pizza-card">
+                <h3>{{ pizza.name }}</h3>
+                <p class="home-pizza-card-body">
+                    {{ pizza.description }}
+                </p>
+                <div class="home-pizza-card-footer">
+                    <button class="home-pizza-card-btn list-pizza-btn">
+                        <a href="{{ path('app_admin_pizza_update', {'id': pizza.id}) }}">Modifier <i class="fa-solid fa-pen"></i></a>
+                    </button>
+                    <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
+                        <a href="{{ path('app_admin_pizza_delete', {'id': pizza.id}) }}">Supprimer<i class="fa-solid fa-trash"></i></a>
+                    </button>
+                </div>
+                <div class="home-pizza-card-img">
+                    <div class="black-frame"></div>
+                        <img width="100px" height="100px" src="{{ '../uploads/' ~pizza.picture }}" alt="{{ pizza.name }}" />
+                    </div>
+                </div>
+            </div>
+    
         {% else %}
             <span>Aucune pizza !! </span>
         {% endfor %}
 
-   </div>
+    </div>
    
 {% endblock %}

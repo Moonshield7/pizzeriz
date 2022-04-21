@@ -47,8 +47,8 @@ h1{
 }
 h2, h3{
     font-family: var(--font-raleway);
-    text-align: center;
     margin: 2rem 0;
+    text-align: center;
 }
 i{
     color: var(--color-white);
