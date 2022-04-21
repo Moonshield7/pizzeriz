@@ -7,6 +7,7 @@ namespace App\Controller\admin;
 use App\Entity\Pizza;
 use App\Entity\Panier;
 use App\Entity\Article;
+use App\Entity\Command;
 use App\Form\RegisterType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -93,24 +94,53 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('app_account_panier_list');
 
     }
-    #[Route('/account/commande/recap', name:'app_account_commande_recap', methods:['GET'])]
-    public function command( Request $request,  UserRepository $userRepository): Response
+
+    #[Route('/account/commande/recap', name:'app_account_commande_recap', methods:['GET', 'POST'])]
+    public function command( Request $request,  UserRepository $userRepository, EntityManagerInterface $entityManager): Response
     {
         $user = $userRepository->find($this->getUser());
 
         $panier = $user->getPanier();
-         $articles = $panier->getArticles();
-         $form = $this->createForm(RegisterType::class, $user)
+        $articles = $panier->getArticles();
+        $form = $this->createForm(RegisterType::class, $user)
                 ->handleRequest($request);
-       
-         return $this->render('account/commande/recap.html.twig', [
+        
+        if($form->isSubmitted() && $form->isValid()){
+
+            $total = 0;
+            $quantity = 0;
+
+            $commande = new Command();
+            $commande->setUser($user);
+            foreach($articles as $article){
+                $total += $article->getQuantity() * $article->getPizza()->getPrice();
+                $quantity += $article->getQuantity();
+
+                $commande->addArticle($article);
+            }
+
+            $commande->setTotal(strval($total));
+            $commande->setQuantity(strval($quantity));
+            $commande->setState("En cours");
+
+            $entityManager->persist($commande);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_account_commande_validee');
+        }
+        
+        return $this->render('account/commande/recap.html.twig', [
              'user'=>$user ,
              'articles'=> $articles,
              'form' => $form->createView()
-         ]
+        ]
         );
+    }
 
-
+    #[Route('/account/commande/validee', name:"app_account_commande_validee", methods: ["GET"])]
+    public function validate(): Response
+    {
+        return $this->render('account/commande/validee.html.twig');
     }
     
 
