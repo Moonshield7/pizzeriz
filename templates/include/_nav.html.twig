@@ -27,7 +27,7 @@
         <div class="navbar-right">
 
             {# panier #}
-            <a href="" title="Accéder à vôtre panier"><i class="fa-solid fa-basket-shopping"></i></a>
+            <a href="{{ path('app_account_panier_list') }}" title="Accéder à vôtre panier"><i class="fa-solid fa-basket-shopping"></i></a>
 
             {% if not app.user %}
 
