@@ -6,9 +6,9 @@
 
     <div class="actions">
       <h2>Les utilisateurs</h2>
-      <button>
-         <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter un nouvel utilisateur</a>
-      </button>
+      {# <button>
+         <a href="{{ path('app_register') }}" title="Ajouter un utilisateur">Ajouter un nouvel utilisateur</a>
+      </button> #}
    </div>
 
     {# RECHERCHE AVANCEE #}
@@ -39,7 +39,7 @@
                             <td> {{user.id}} </td>
                             <td> {{user.email}} </td>
                             <td> {{user.phoneNumber}} </td>
-                            <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
+                            <td> <a href=" {{path('app_admin_user_update', {id: user.id})}} " tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href=" {{path('app_admin_user_delete', {id: user.id})}} " title="Supprimer"><i class="fas fa-trash"></i></a></td>
                         </tr>  
                     {% endfor %}
                 </tbody>
