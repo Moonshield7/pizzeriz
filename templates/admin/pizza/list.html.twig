@@ -5,10 +5,11 @@
 {% block body %}
 
    <div class="actions">
-      <h2>Les pizzas</h2>
-      <button>
-         <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter une pizza</a>
-      </button>
+      <h2>Gestion de la liste des pizzas</h2>
+      <div class="btn-add">
+         <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza" >Ajouter une pizza</a>
+      </div>
+      
    </div>
 
       {% for pizza in pizzas %}
@@ -22,10 +23,10 @@
                 </p>
                 <div class="home-pizza-card-footer">
                      <button class="home-pizza-card-btn list-pizza-btn">
-                        <a href="{{ path('app_admin_pizza_update', {'id': pizza.id}) }}" title="modifier la pizza">Modifier <i class="fa-solid fa-pen"></i></a>
+                        <a href="{{ path('app_admin_pizza_update', {'id': pizza.id}) }}">Modifier <i class="fa-solid fa-pen"></i></a>
                      </button>
                      <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
-                        <a href="{{ path('app_admin_pizza_delete', {'id': pizza.id}) }}" title="supprimer la pizza">Supprimer<i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ path('app_admin_pizza_delete', {'id': pizza.id}) }}">Supprimer<i class="fa-solid fa-trash"></i></a>
                      </button>
                 </div>
                 <div class="home-pizza-card-img">
@@ -37,7 +38,7 @@
 
       {% else %}
 
-         <h2>Aucune pizza !! </h2>
+         <span>Aucune pizza !! </span>
 
       {% endfor %}
 

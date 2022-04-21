@@ -1,9 +1,8 @@
 {% extends 'admin/pizza/create.html.twig' %}
 
-{% block page_title 'Modifier' %}
 {% block body %}
 
-    <h1 class="text-center my-3">Modifier {{ pizza.name }}</h1>
+    <h2>Modifier {{ pizza.name }}</h2>
     <a href="{{ path('app_admin_pizza_list') }}" class="text-dark"><i class="fa-solid fa-arrow-left"></i> Retour aux pizzas</a>
 
     <div class="row">
