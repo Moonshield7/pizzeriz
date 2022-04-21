@@ -1,3 +1,8 @@
+/*
+==========
+CONFETTIS
+==========
+*/
 .containerBtn{
     margin: 10px;
     width: 10%;
@@ -60,12 +65,15 @@ PARTIE CSS DES ELEMENTS PRINCIPAUX
 */
 body{
     background-color: var(--color-white);
-    overflow: hidden;
 }
 body p, body a, button{
     font-family: var(--font-montserrat);
 }
-
+h1{
+    font-size: 90px;
+    color: #ffffff; 
+    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+}
 h2{
     font-family: var(--font-raleway);
     margin: 30px 250px;
@@ -107,6 +115,7 @@ PARTIE CSS DE LA NAVIGATION
 PARTIE CSS DU FOOTER
 ====================
 */
+
 footer{
     width: 100%;
     background-color: var(--color-black);
@@ -147,11 +156,6 @@ header{
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-}
-header h1{
-    font-size: 90px;
-    color: #ffffff; 
-    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
 header p{
     font-size: 25px;
