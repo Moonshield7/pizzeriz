@@ -4,53 +4,48 @@
 
 {% block body %}
 
-{# TITRE + BOUTON NOUVEL UTILISATEUR #}
-    <div class="container">
-        <div class="leftpart">
-            <h1>Les Utilisateurs</h1>
-        </div>
+    <div class="actions">
+      <h2>Les utilisateurs</h2>
+      <button>
+         <a href="{{ path('app_admin_pizza_create') }}" title="Ajouter une pizza">Ajouter un nouvel utilisateur</a>
+      </button>
+   </div>
 
-        <div class="rightpart">
-            <a href="#" title="Ajouter un utilisateur"><i class="fas fa-plus-circle"></i> Nouvel utilisateur</a>
-        </div>      
-    </div>
+    {# RECHERCHE AVANCEE #}
 
-{# RECHERCHE AVANCEE #}
-
-    <div class="container">
-    {{form_start(form)}}
-    {{form_end(form)}}
-    
+    <div>
+        {{form_start(form)}}
+        {{form_end(form)}}
     </div>
 
 
 
-{# TABLEAU DES UTILISATEURS #}
-<div class="container justify-content-center">
-    <div class="row justify-content-center">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Téléphone</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for user in users %}
+    {# TABLEAU DES UTILISATEURS #}
+    <div>
+        <div>
+            <table>
+                <thead>
                     <tr>
-                        <td> {{user.id}} </td>
-                        <td> {{user.email}} </td>
-                        <td> {{user.phoneNumber}} </td>
-                        <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
-                    </tr>  
-                {% endfor %}
-            </tbody>
-        </table>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td> {{user.id}} </td>
+                            <td> {{user.email}} </td>
+                            <td> {{user.phoneNumber}} </td>
+                            <td> <a href="#" tilte="Modifier"><i class="fas fa-pen"></i></a> | <a href="#" title="Supprimer"><i class="fas fa-trash"></i></a></td>
+                        </tr>  
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 
 

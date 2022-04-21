@@ -295,7 +295,6 @@ PARTIE CSS DU DASHBOARD : DASHBOARD.HTML.TWIG
 PARTIE CSS DE LA LISTE DES PIZZAS : LIST.HTML.TWIG
 ==================================================
 */
-/* On réutilisse les class de home-card-pizza */
 .trash-pizza{
     background-color: var(--color-btn-trash);
 }
@@ -306,4 +305,13 @@ PARTIE CSS DE LA LISTE DES PIZZAS : LIST.HTML.TWIG
     display: flex;
     padding: 20px 280px;
     text-align: center;
+}
+/*
+========================================================
+PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
+========================================================
+*/
+td i{
+    color: var(--color-black);
+    font-size: 15px;
 }
