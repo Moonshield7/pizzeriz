@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <h2>Confirmation</h2>
+
+    <span>Votre commande a bien été enregistrée et vous sera délivrée sous peu.</span>
+    <span>Merci et bon appétit. :)</span>
+
+    <i class="fas fa-check-circle"></i>
+
+    <button>
+        <a href=" {{path('app_default_show_home')}} "><i class="fas fa-arrow-alt-circle-left"></i> Retour au site</a>
+    </button>
+</div>
+{% endblock %}

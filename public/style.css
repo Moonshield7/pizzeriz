@@ -1,0 +1,627 @@
+/*
+==========
+MINI RESET
+==========
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+============================
+DEFINITION DES VARIABLES CSS
+============================
+*/
+:root{
+    --color-white: #EFEFEF;
+    --color-black: #363636;
+    --color-btn: rgb(114, 175, 114);
+    --color-btn-trash: rgb(181, 69, 69);
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-raleway: 'Raleway', sans-serif;
+}
+
+/*
+==================================
+PARTIE CSS DES ELEMENTS PRINCIPAUX 
+==================================
+*/
+body{
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh ;
+}
+.container {
+    flex-grow: 2;
+}
+p, a, button, label, input{
+    font-family: var(--font-montserrat);
+}
+h1{
+    font-size: 90px;
+    color: #ffffff; 
+    text-shadow: 1px 0px 1px #ffffff, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+}
+h2, h3{
+    font-family: var(--font-raleway);
+    margin: 2rem 0;
+    text-align: center;
+}
+i{
+    color: var(--color-white);
+    font-size: 25px;
+    padding: 0 10px;
+}
+a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+span{
+    font-family: var(--font-montserrat);
+    text-align: center;
+    display: block;
+    margin-bottom: 1rem;
+}
+span a{
+    color: var(--color-black);
+}
+.btn-add{
+    text-align: center;
+    
+}
+.btn-add a{
+    color: var(--color-black);
+}
+.btn-add a:hover{
+   text-decoration: underline; 
+}
+.hidden{
+    visibility: hidden
+}
+/*
+===========================
+PARTIE CSS DE LA NAVIGATION
+===========================
+*/
+.navbar{
+    display: flex;
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 20px;
+    box-shadow: var(--color-white) 0px 10px 10px 0px;
+}
+.navbar-left{
+    width: 90%;
+    padding-left: 50px;
+}
+.navbar-right{
+    width: 10%;
+
+}
+/*
+====================
+PARTIE CSS DU FOOTER
+====================
+*/
+
+footer{
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+.line{
+    border-top: 2px solid var(--color-white);
+    margin: 0 100px;
+    padding-bottom: 20px;
+}
+.footer-top{
+    padding: 20px 0;
+    line-height: 30px;
+    text-align: center;
+}
+.footer-bottom{
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+/*
+=====================================
+PARTIE CSS DU HEADER : HOME.HTML.TWIG
+=====================================
+*/
+header{
+    width: 100%;
+    height: 600px;
+    background: url('https://cdn.pixabay.com/photo/2020/03/21/02/26/pizza-4952508_960_720.jpg') no-repeat center center / cover;
+    position: relative;
+}
+.header-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+header p{
+    font-size: 25px;
+}
+/*
+============================================
+PARTIE CSS DES CARDS PIZZAS : HOME.HTML.TWIG
+============================================
+*/
+.home-pizza-card {
+    width: 70%;
+    margin: auto auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+}
+.home-pizza-card h3 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--color-white);
+}
+.home-pizza-card-body {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    color: var(--color-white);
+}
+.home-pizza-card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8rem;
+    align-items: center;
+}
+.home-pizza-card-footer .price {
+    font-size: 3rem;
+    color: var(--color-white);
+}
+.home-pizza-card-img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: blur(1px);
+}
+.home-pizza-card-img .black-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.home-pizza-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.home-pizza-card-btn{
+      padding: 10px 50px;
+      margin: 0;
+      border: none;
+}
+.home-pizza-card-btn i{
+      padding-left: 15px;
+}
+/*
+=================================================================
+PARTIE CSS DU FORMULAIRES DINSCRIPTION :  FORM_REGISTER.HTML.TWIG
+        ET DU FORMULAIRE CONNEXION : LOGIN.HTML.TWIG
+=================================================================
+*/
+.container-form{
+    width: 70%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.container-form h3{
+    padding: 15px 0;
+}
+.form-group{
+    padding: 10px 0;
+}
+.form-group input, .form-group textarea{
+    width:100%;
+    opacity:0.9;
+    background-color: white;
+    padding: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+.form-group label{
+    width: 100%;
+    font-size: 20px;
+}
+button{
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid var(--color-white);
+    background: var(--color-btn);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    margin: 20px auto;
+}
+/*
+=============================================
+PARTIE CSS DU DASHBOARD : DASHBOARD.HTML.TWIG
+=============================================
+*/
+.dashboard-container{
+    width: 30%;
+    margin: 50px 250px;
+    display: block;
+}
+.dashboard-card{
+    background-color: var(--color-black);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    color: var(--color-white);
+    margin: 50px 0;
+    padding: 20px 30px;
+}
+/*
+==================================================
+PARTIE CSS DE LA LISTE DES PIZZAS : LIST.HTML.TWIG
+==================================================
+*/
+.trash-pizza{
+    background-color: var(--color-btn-trash);
+}
+.list-pizza-btn{
+    padding: 10px 25px;
+}
+.actions{
+    margin-bottom: 2rem;
+}
+/*
+===========================================================
+PARTIE CSS DE LA MODIFICATION DES PIZZAS : UPDATE.HTML.TWIG
+===========================================================
+*/
+.container-update{
+    margin: 5rem auto ;
+    padding: 2rem;
+    width: 50%;
+    border: var(--color-black 2px solid);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.container-update input, .container-update select{
+    width: 10rem;
+    padding: 2px;
+    margin: 0.5rem 1rem;
+}
+.container-update textarea{
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    border: none;
+    margin-bottom: 1rem;
+}
+/*
+========================================================
+PARTIE CSS DE LA LISTE DES UTILISATEURS : LIST.HTML.TWIG
+========================================================
+*/
+.container-search{
+    margin: 0 auto 5rem auto ;
+    padding: 2rem;
+    width: 50%;
+    border: var(--color-black 2px solid);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.container-search input, .container-search select{
+    width: 10rem;
+    padding: 2px;
+    margin-left: 10px;
+}
+.container-table i{
+    color: var(--color-black);
+    font-size: 15px;
+}
+.container-table .fa-trash{
+    color: var(--color-btn-trash);
+}
+.container-table .fa-pen{
+    color: var(--color-btn);
+}
+.container-table{
+    margin: auto auto;
+    width: 70%;
+    text-align: center;
+}
+.container-thead{
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-black);
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
+}
+.container-tbody{
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    line-height: 2rem;
+    margin-bottom: 2rem;
+}
+/*
+=====================================
+PARTIE CSS DU PANIER : LIST.HTML.TWIG
+=====================================
+*/
+.quantity{
+    color: var(--color-white);
+}
+.quantity a{
+    border: 1px solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    margin: 0 2rem;
+}
+
+/* 
+==================================
+PARTIE CSS DE LA PIZZA EN COMMANDE
+==================================
+*/
+:root {
+    --bg: #EFEFEF;
+    --crust: #fda345;
+    --sauce: #a20e0e;
+    --cheese: #f3cf7a;
+    --pepperoni: #8f1d14;
+}
+.pizza-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.pizza {
+    position: relative;
+    width: 510px;
+    height: 510px;
+    background: var(--crust);
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 16px 10px #E66C30, 0px 0px 20px 1px black;
+    z-index: -1; 
+    animation: spin 12s infinite linear;
+}
+  
+@keyframes spin {
+    0%{
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+/* sauce */
+.pizza::before {
+    content: "";
+    color: var(--sauce);
+    background: currentColor;
+    position: absolute;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    box-shadow: 1px 1px 10px 2px currentColor;
+}
+  
+/* cheese */
+.pizza::after {
+    content: "";
+    background: var(--cheese);
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    top: 30px;
+    left: 30px;
+    box-shadow: inset 1px 1px 80px 60px #EFB45B;
+}
+  
+.pepperonis {
+    position: absolute;
+    background: var(--crust);
+    width: 0;
+    height: 0;
+    top: 225px;
+    left: 225px;
+    z-index: 1;
+}
+  
+.pepperoni {
+    position: absolute; 
+    width: 60px;
+    height: 60px;
+    background: var(--pepperoni);
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px black,1px 1px 4px 3px #EFB45B;
+}
+  
+/*  pepperoni fat  */
+.pepperoni::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    color: white;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: .3;
+    top: 12px;
+    left: 12px;
+    box-shadow: 8px 25px currentColor;
+}
+  
+.pepperoni::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 15px;
+    color: white;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: .3;
+    top: 18px;
+    left: 38px;
+}
+  
+.pepperoni-0 {
+    top: 0px;
+    left: 0px;
+}
+  
+.pepperoni-1 {
+    top: 90px;
+    left: 0px;
+}
+  
+.pepperoni-2 {
+    top: 50px;
+    left: 80px;
+}
+  
+.pepperoni-3 {
+    top: -50px;
+    left: 80px;
+}
+  
+.pepperoni-4 {
+    top: -90px;
+    left: 0px;
+}
+  
+.pepperoni-5 {
+    top: -50px;
+    left: -80px;
+}
+  
+.pepperoni-6 {
+    top: 50px;
+    left: -80px;
+}
+  
+.pepperoni-7 {
+    top: 170px;
+    left: 55px;
+}
+  
+.pepperoni-8 {
+    top: 170px;
+    left: -55px;
+}
+  
+.pepperoni-9 {
+    top: 130px;
+    left: -130px;
+}
+  
+.pepperoni-10 {
+    top: 40px;
+    left: -175px;
+}
+  
+.pepperoni-11 {
+    top: -40px;
+    left: -175px;
+}
+  
+.pepperoni-12 {
+    top: -130px;
+    left: -130px;
+}
+  
+.pepperoni-13 {
+    top: -170px;
+    left: -55px;
+}
+  
+.pepperoni-14 {
+    top: -170px;
+    left: 55px;
+}
+  
+.pepperoni-15 {
+    top: -130px;
+    left: 130px;
+}
+  
+.pepperoni-16 {
+    top: -40px;
+    left: 175px;
+}
+  
+.pepperoni-17 {
+    top: 40px;
+    left: 175px;
+}
+  
+.pepperoni-18 {
+    top: 130px;
+    left: 130px;
+}
+  
+.cuts {
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    top: 255px;
+    z-index: 5;
+}
+  
+.cuts::before {
+    content: "";
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    transform: rotate(60deg);
+    z-index: 5;
+}
+  
+.cuts::after {
+    content: "";
+    position: absolute;
+    width: 510px;
+    height: 0px;
+    box-shadow: 0px 1px 1px 1px var(--bg);
+    transform: rotate(-60deg);
+    z-index: 5;
+}
+  
+.slice{
+    position: absolute;
+    color: var(--bg);
+    width: 0;
+    height: 0;
+    border-left: 164px solid transparent;
+    border-right: 164px solid transparent;
+    border-top: 285px solid currentColor;
+    z-index: 6;
+    left: 91px;
+    top: -29px;
+    transform-origin: 50% 100%;
+}

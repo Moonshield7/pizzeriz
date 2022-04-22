@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajout d'une nouvelle pizza{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>{% block page_title 'Nouvelle pizza' %}</h2>
+        <div class="btn-add">
+            <a href="{{ path('app_admin_pizza_list') }}">Retour à la liste</a>
+        </div>
+    
+        <div class="container-form">
+            {{form_start(form)}}
+
+                <div class="container-form-info">
+
+                    <div class="form-group">
+                        {{form_row(form.name)}}
+                    </div>
+                    <div class="form-group">
+                        {{form_row(form.description)}}
+                    </div>
+                    <div class="form-group">
+                        {{form_row(form.price)}}
+                    </div>
+                    <div class="form-group">
+                        {{form_row(form.picture)}}
+                    </div>
+                </div>
+            {{form_end(form)}}
+        </div>
+    </div>
+    
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}Dashboard{% endblock %}
+
+    {% block body %}
+
+
+        <div class="container dashboard-container">
+            <h2>Administration</h2>
+
+            <div class="dashboard-card">
+                <a href="{{ path('app_admin_pizza_list') }}">
+                    <i class="fas fa-pizza-slice"></i> - Gérer vos pizzas
+                </a>
+            </div>
+
+            <div class="dashboard-card">
+                <a href="{{ path('app_admin_command_list') }}">
+                    <i class="fa-solid fa-arrow-up-wide-short"></i> - Gérer vos commandes
+                </a>
+            </div>
+            
+            <div class="dashboard-card">
+                <a href="{{ path('app_admin_user_list') }}">
+                    <i class="fa-solid fa-user-group"></i> - Gérer vos utilisateurs
+                </a>
+            </div>
+
+        </div>
+
+
+    {% endblock %}

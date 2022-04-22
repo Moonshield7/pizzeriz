@@ -1,10 +1,44 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Accueil{% endblock %}
+    {% block title %}Accueil{% endblock %}
 
-{% block body %}
+    {% block body %}
+        <div class="container">
+            <header>
+                <div class="header-container">
+                    <h1>PizzaShop</h1>
+                    <p>Vos meilleures pizzas à portée de clic!</p>
+                </div>
+            </header>
 
-    <h1>Coucou !</h1>
+            <h2>Voici la carte de nos pizzas:</h2>
 
-{% endblock %}
+            {% for pizza in pizzas %}
+
+                <div class="home-pizza-card">
+                    <h3>
+                        {{ pizza.name }}
+                    </h3>
+                    <p class="home-pizza-card-body">
+                        {{ pizza.description }}
+                    </p>
+                    <div class="home-pizza-card-footer">
+                        <p class="price">
+                            {{ pizza.price}}&nbsp;€
+                        </p>
+                        <button class="home-pizza-card-btn" >
+                            <a href={{ path('app_account_panier_add', {id: pizza.id}) }}>Ajouter au panier <i class="fa-solid fa-cart-shopping"></i></a> 
+                        </button>
+                    </div>
+                    <div class="home-pizza-card-img">
+                        <div class="black-frame"></div>
+                            <img width="100px" height="100px" src="{{ '../uploads/' ~pizza.picture }}" alt="{{ pizza.name }}" />
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    {% endblock %}
 

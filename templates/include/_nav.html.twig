@@ -1,0 +1,48 @@
+<nav>
+    <div class="navbar">
+
+        <div class="navbar-left">
+
+            {# home #}
+            <a href="{{ path('app_default_show_home') }}" title="Accueil"><i class="fa-solid fa-house"></i></a>
+
+            {% if is_granted("ROLE_ADMIN") %}
+
+                {# dashboard #}
+                <a href="{{ path ('app_admin_show_dashboard') }}" title="Dashboard"><i class="fa-solid fa-file-lines"></i></a>
+
+                {# pizzas #}
+                <a href="{{ path('app_admin_pizza_list') }}" title="Gérer les pizzas"><i class="fa-solid fa-pizza-slice"></i></a>
+
+                {# commandes #}
+                <a href="{{ path('app_admin_command_list') }}" title="Gérer les commandes"><i class="fa-solid fa-arrow-up-short-wide"></i></a>
+
+                {# utilisateurs #}
+                <a href="{{ path('app_admin_user_list') }}" title="Gérer les utilisateurs"><i class="fa-solid fa-user-group"></i></a>
+
+            {% endif %}
+
+        </div>
+
+        <div class="navbar-right">
+
+            {# panier #}
+            <a href="{{ path('app_account_panier_list') }}" title="Accéder à vôtre panier"><i class="fa-solid fa-basket-shopping"></i></a>
+
+            {% if not app.user %}
+
+                {# connexion #}
+                <a href="{{ path('app_login') }}" title="Connectez-vous"><i class="fa-solid fa-user"></i></a>
+
+                {# inscription #}
+                <a href="{{ path('app_register') }}" title="Inscrivez-vous"><i class="fa-solid fa-user-plus"></i></a>
+
+            {% else %}
+            
+                <a href="{{ path('app_logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+
+            {% endif %}
+
+        </div>
+    </div>
+</nav>

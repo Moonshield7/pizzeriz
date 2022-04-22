@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>Mes articles</h2>
+
+        {% if articles is empty %}
+        
+            <span>Aucun article !! </span>
+        
+        {% else %}
+        {% for article in articles %}
+
+        <div class="home-pizza-card">
+            <h3>
+                {{article.pizza.name }}
+            </h3>
+            <p class="home-pizza-card-body">
+               {{ article.pizza.description }}
+            </p>
+            <div class="home-pizza-card-footer">
+                <div class="quantity">
+                    <a href="{{ path('app_account_panier_subtractQuantity', {id: article.id}) }}" title="retirer 1">-</a>
+                    {{ article.quantity }}
+                    <a href="{{ path('app_account_panier_addQuantity', {id: article.id}) }}" title="ajouter 1">+</a>
+                </div>
+                <div class="price">
+                    {{ article.quantity * article.pizza.price }}&nbsp;€
+                </div>
+                <div>
+                    <button class="home-pizza-card-btn list-pizza-btn trash-pizza">
+                        <a href="{{ path('app_account_panier_remove',{id: article.id} ) }}" title="supprimer l'article">Supprimer<i class="fa-solid fa-trash"></i></a>
+                    </button>
+                </div>
+
+                <div class="home-pizza-card-img">
+                   <div class="black-frame"></div>
+                        <img width="100px" height="100px" src="{{ '../uploads/' ~ article.pizza.picture }}" alt="{{ article.pizza.name }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+            <button><a href=" {{path('app_account_commande_recap')}} ">Commander</a></button>
+        {% endif %}
+    </div>
+
+    
+
+{% endblock %}

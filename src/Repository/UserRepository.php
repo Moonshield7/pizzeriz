@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\DTO\UserSearchCriteria;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -60,6 +61,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newHashedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    public function findByCriteria(UserSearchCriteria $criterias): array
+    {
+        $qb = $this
+            ->createQueryBuilder('user')
+            ->setMaxResults($criterias->limit)
+            ->setFirstResult($criterias->limit * ($criterias->page - 1))
+            ->orderBy("user.$criterias->orderBy", $criterias->direction);
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**
